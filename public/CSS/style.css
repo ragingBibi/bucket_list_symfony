@@ -1,0 +1,88 @@
+body{
+    background-color: bisque;
+    color: rgba(157, 67, 67, 0.93);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: rgba(226, 104, 104, 0.56); /* Couleur de fond du header */
+    color: #fff; /* Couleur du texte du header */
+    padding: 20px; /* Espacement intérieur du header */
+    margin: 0;
+}
+
+/* Style pour le footer */
+footer {
+    background-color: #6d8a67; /* Couleur de fond du footer */
+    color: #fff; /* Couleur du texte du footer */
+    padding: 20px; /* Espacement intérieur du footer */
+}
+
+nav {
+    color: #fff; /* Couleur du texte du menu */
+    padding: 20px; /* Espacement intérieur du menu */
+}
+
+p{
+    font-family: "Anta", sans-serif;
+}
+
+.nav-link {
+    color: #fff; /* Couleur du texte des liens du menu */
+    font-family: "Anta", sans-serif;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    align-content: center;
+    margin: auto 0;
+}
+
+.logo{
+    position: absolute;
+}
+
+.titre-site{
+    position: relative;
+    text-align: center;
+    right: 700px;
+    font-family: "Anta", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.copyright{
+    position: relative;
+    text-align: center;
+    font-family: "Anta", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.image-clignote  {
+    animation-duration: 4s;
+    animation-name: clignoter;
+    animation-iteration-count: infinite;
+    transition: none;
+}
+
+.titre-home{
+    align-content: center;
+    text-align: center;
+    font-family: "Anta", sans-serif;
+}
+@keyframes clignoter {
+    0%   { opacity:1; }
+    40%   {opacity:0; }
+    100% { opacity:1; }
+}
+
+#najat{
+    width: 10%;
+    border-radius: 30% 70% 70% 30% / 100% 100% 20% 15% ;
+}

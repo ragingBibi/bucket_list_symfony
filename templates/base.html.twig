@@ -4,14 +4,30 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
-
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{asset ('css/style.css')}}">
     </head>
     <body>
+    <header>
+        <img src="{{ asset('image/logo.png') }}" class="logo">
+        <div class="titre-site">
+            <h1>Le Najat - Bucket List</h1>
+        </div>
+        <nav>
+            <a class="nav-link" href="{{ asset('home') }}">Home</a>
+            <a class="nav-link" href="{{ asset('about') }}">About</a>
+            <a class="nav-link" href="{{ asset('list') }}">Liste</a>
+        </nav>
+    </header>
+
         {% block body %}{% endblock %}
+
+    <footer class="footer">
+        <div>
+        <p class="copyright">©Bucket List</p>
+        </div>
+    </footer>
     </body>
 </html>
