@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bucket List - About Us{% endblock %}
+
+{% block body %}
+<p>About Us</p>
+    <p>Cette page est pour tout ceux qui veulent lister les choses qu'ils veulent avec faire Najat.</p>
+    <p>Discuter, faire du shopping ou des jeux de sociétés, rien n'est plus beau que du temps passé avec notre ancienne ministre.</p>
+
+<!-- "firstname": "Fabien",
+    "lastname": "Potencier" -->
+
+        <h1>Notre équipe</h1>
+    {% for person in team %}
+
+        <ul>
+            <li> Name : {{ person.firstname }} {{ person.lastname }} </li>
+            <li> Date of birth : {{ person.dateOfBirth }}</li>
+            <li> Creator of : {{ person.creatorOf }}</li>
+            <li> Picture : {{ person.picture }}</li>
+            <li> Description : {{ person.description }}</li>
+        </ul>
+    {% endfor %}
+{% endblock %}
+

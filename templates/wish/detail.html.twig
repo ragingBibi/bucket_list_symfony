@@ -1,0 +1,32 @@
+{%  extends "base.html.twig" %}
+
+{% block title %}{{ wish.title }}{% endblock %}
+
+{% block body %}
+
+    <table class="table" id="detail-table">
+        <tbody>
+        <tr>
+            <th scope="row" style="min-width: 200px">#</th>
+            <td>{{ wish.id }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Titre</th>
+            <td>{{ wish.title }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Description</th>
+            <td>{{ wish.description|default('[Non Définie]') }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Auteur</th>
+            <td>{{ wish.author }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Date de création</th>
+            <td>{{ wish.dateCreated|date('d/m/Y H:i:s') }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+{% endblock %}
