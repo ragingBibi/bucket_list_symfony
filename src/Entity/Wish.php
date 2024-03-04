@@ -2,11 +2,12 @@
 
 namespace App\Entity;
 
+use App\Repository\WishRepository;
 use DateTime;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity]
+#[ORM\Entity(repositoryClass: WishRepository::class)]
 #[ORM\Table(name: 'Wishes')]
 class Wish
 {
@@ -16,6 +17,8 @@ class Wish
     private ?int $id = null;
 
     #[ORM\Column(name: 'title', type: Types::STRING, length: 250, nullable: false)]
+    #[Assert\Length(max: 100, maxMessage: 'Le titre ne doit pas dépasser {{ limit }} caractères')]
+    #[Assert\Length(min: 3, minMessage: 'Le titre doit avoir au moins {{ limit }} caractères')]
     private ?string $title = null;
 
     #[ORM\Column(name: 'description', type: Types::TEXT, length: 2000, nullable: true)]
@@ -29,21 +32,6 @@ class Wish
 
     #[ORM\Column(name: 'date_created', type: Types::DATETIME_MUTABLE, nullable: false)]
     private DateTime $dateCreated;
-
-    /**
-     * @param string|null $title
-     * @param string|null $description
-     * @param string|null $author
-     * @param bool $isPublished
-     */
-    public function __construct(?string $title, ?string $description, ?string $author, bool $isPublished)
-    {
-        $this->title = $title;
-        $this->description = $description;
-        $this->author = $author;
-        $this->isPublished = $isPublished;
-        $this->dateCreated = new DateTime('now');
-    }
 
 
     public function getId(): ?int
