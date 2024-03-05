@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Category;
 use App\Entity\Wish;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -33,6 +35,15 @@ class WishType extends AbstractType
             ->add('dateCreated', DateType::class, [
                 'widget' => 'single_text',
                 'row_attr' => ['class' => 'input-group mb-3']
+            ])
+            ->add('category', EntityType::class, [
+                'required' => false,
+                'class' => Category::class,
+                'choice_label' => 'name',
+                'placeholder' => '--Veuillez choisir une catégorie--',
+                'row_attr' => [
+                    'class' => 'input-group mb-3'
+                ]
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Save',

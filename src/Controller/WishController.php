@@ -83,8 +83,9 @@ class WishController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            //persist le em
             $em->persist($wish);
-
+            //flush le em
             $em->flush();
 
             $this->addFlash('success', 'Un souhait a été enregistré, vive Najat!!');

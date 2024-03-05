@@ -33,6 +33,10 @@ class Wish
     #[ORM\Column(name: 'date_created', type: Types::DATETIME_MUTABLE, nullable: false)]
     private DateTime $dateCreated;
 
+    #[ORM\ManyToOne(inversedBy: 'wishes')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Category $category;
+
 
     public function getId(): ?int
     {
@@ -87,5 +91,17 @@ class Wish
     public function setDateCreated(DateTime $dateCreated): void
     {
         $this->dateCreated = $dateCreated;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): static
+    {
+        $this->category = $category;
+
+        return $this;
     }
 }
