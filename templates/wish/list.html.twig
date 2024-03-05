@@ -8,16 +8,20 @@
             <th scope="col">#</th>
             <th scope="col">Titre</th>
             <th scope="col">Date de création</th>
+            <th scope="row">Catégorie</th>
             <th scope="col">Voir</th>
         </tr>
         </thead>
         <tbody>
+        {# on itere sur la liste des souhaits #}
         {%  for wish in wishes %}
             <tr>
+                {# l'ID du souhait lu, puis son nom, puis sa date de créa puis sa catégorie puis son lien vers le détail  #}
                 <th scope="row">{{ wish.id }}</th>
                 <td>{{ wish.title }}</td>
                 <td>{{ wish.dateCreated|date('d/m/Y') }}</td>
-                <td><a href="{{ url('wish_details', {'id': wish.id}) }}">Voir</a></td>
+                <td>{{ wish.category.name|default('[Non Définie]') }}</td>
+                <td><a href="{{ url('wish_detail', {'id': wish.id}) }}">Voir</a></td>
             </tr>
         {% endfor %}
         </tbody>

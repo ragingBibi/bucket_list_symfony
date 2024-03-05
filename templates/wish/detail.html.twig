@@ -23,6 +23,10 @@
             <td>{{ wish.author }}</td>
         </tr>
         <tr>
+            <th scope="row">Catégorie</th>
+            <td>{{ wish.category.name|default('[Non Définie]') }}</td>
+        </tr>
+        <tr>
             <th scope="row">Date de création</th>
             <td>{{ wish.dateCreated|date('d/m/Y H:i:s') }}</td>
         </tr>
